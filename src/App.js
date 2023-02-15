@@ -1,29 +1,25 @@
-import './App.css';
+import { Routes, Route, Link } from 'react-router-dom'
+import Bio from './components/Bio'
+import Picture from './components/Picture'
+import Gallery from './components/Gallery'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src="Octocat.png" className="App-logo" alt="logo" />
-        <p>
-          GitHub Codespaces <span className="heart">♥️</span> React
-        </p>
-        <p className="small">
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
+      <p><Link to="page-one">Page One</Link></p>
+      <p><Link to="page-two">Page Two</Link></p>
+      <p><Link to="page-three">Page Three</Link></p>
+      <Routes>
+        <Route path="/page-one" element={<Bio/>} />
+        <Route path="/page-two" element={<PageTwo/>} />
+        <Route path="/page-three" element={<PageThree/>} />
+      </Routes>
     </div>
   );
 }
+
+const PageOne = () => <h1><Bio /></h1>
+const PageTwo = () => <h1><Picture /></h1>
+const PageThree = () => <h1><Gallery /></h1>
 
 export default App;
